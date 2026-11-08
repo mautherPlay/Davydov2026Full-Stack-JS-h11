@@ -42,13 +42,11 @@ header {
 
 header .container {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
 }
 
 header h1 {
+  flex: 1 1 0%;
   color: var(--color-sunburst);
   font-size: 24px;
   margin-bottom: 0;
@@ -57,8 +55,57 @@ header h1 {
 header nav > ul {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
   gap: 12px;
+}
+
+header .header-icons {
+  list-style-type: none;
+  display: flex;
+  flex: 1 1 0%;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+header .header-icons svg {
+  display: block;
+  width: 50%;
+  height: 50%;
+  fill: var(--color-white);
+  transition: fill 1s linear;
+}
+
+header .header-icons li {
+  box-sizing: border-box;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-spruce);
+  border-radius: 50%;
+}
+
+header .header-icons a {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-mahogany);
+  transition: background-color 1s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+header .header-icons a:hover,
+a:focus {
+  background-color: black;
+}
+
+header .header-icons a:hover svg,
+a:focus svg {
+  fill: var(--color-sunburst);
 }
 
 header nav li {
@@ -68,6 +115,7 @@ header nav li {
 nav a:link,
 nav a:visited {
   color: var(--color-white);
+  transition: color 0.5s ease-in-out;
 }
 
 nav a:hover,
@@ -120,6 +168,64 @@ main section p {
 .hero-subtitle {
   color: var(--color-white);
   font-size: 24px;
+}
+
+.hero-button {
+  background-color: var(--color-white);
+  color: var(--color-rosewood);
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  margin: 32px auto 0;
+  font-family: 'Roboto Slab', serif;
+  transition:
+    background-color 0.5s linear,
+    color 0.5s linear,
+    transform 0.5s linear;
+}
+
+.hero-button:link,
+.hero-button:visited {
+  color: var(--color-rosewood);
+}
+
+.hero-button:hover,
+.hero-button:focus {
+  background-color: var(--color-mahogany);
+  color: var(--color-sunburst);
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+.hero-button {
+  position: relative;
+}
+
+.hero-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--color-mahogany);
+  border-radius: inherit;
+  animation: motion 400ms infinite alternate;
+  transition: border-color 0.5s linear;
+}
+
+.hero-button:hover::after,
+.hero-button:focus::after {
+  border-color: white;
+}
+
+@keyframes motion {
+  0% {
+    border-style: dotted;
+  }
+  100% {
+    border-style: dashed;
+  }
 }
 
 /* Вступ і картки */
